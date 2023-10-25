@@ -28,30 +28,28 @@ const Login = () => {
     return(
         <>
             <main >        
-                <section>
-                    <div>                                            
-                        <p> Login </p>                       
+            <section className="form-container">
+                 <div className ="lol">                  
+                 <h1 className='h1'> Login </h1>                                                                            
                                                        
-                        <form>                                              
+                        <form onClick={onLogin}>                                              
                             <div>
-                                <label htmlFor="email-address">
-                                    Email address
-                                </label>
+                                
                                 <input
+                                    className='input'
                                     id="email-address"
                                     name="email"
                                     type="email"                                    
                                     required                                                                                
-                                    placeholder="Email address"
+                                    placeholder="Email"
                                     onChange={(e)=>setEmail(e.target.value)}
                                 />
                             </div>
 
                             <div>
-                                <label htmlFor="password">
-                                    Password
-                                </label>
+                              
                                 <input
+                                    className='input'
                                     id="password"
                                     name="password"
                                     type="password"                                    
@@ -65,20 +63,22 @@ const Login = () => {
                                 <button                                    
                                     onClick={onLogin}                                        
                                 >      
-                                    Login                                                                  
+                                    LOGIN                                                                  
                                 </button>
                             </div>                               
                         </form>
                        
                         <p className="text-sm text-white text-center">
                             No account yet? {' '}
-                            <NavLink to="/signup">
+                            <NavLink to="/">
                                 Sign up
                             </NavLink>
                         </p>
                                                    
                     </div>
                 </section>
+                <img className="image-container" src="./assets/image.png" alt="image" />  
+
             </main>
         </>
     )

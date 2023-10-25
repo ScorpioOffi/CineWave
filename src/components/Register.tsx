@@ -2,7 +2,8 @@ import React, {useState} from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import {  createUserWithEmailAndPassword  } from 'firebase/auth';
 import { auth } from '../database/firebase.config';
- 
+import '../css/Register&Login.css';
+
 const Signup = () => {
     const navigate = useNavigate();
  
@@ -28,30 +29,29 @@ const Signup = () => {
     }
  
   return (
-    <main >        
-        <section>
+    
+    <main>  
+              
+       <section className="form-container">
             <div>
-                <div>                  
-                    <h1> Register </h1>                                                                            
-                    <form>                                                                                            
-                        <div>
-                            <label htmlFor="email-address">
-                                Email address
-                            </label>
+                <div className ="lol">                  
+                    <h1 className='h1'> Register </h1>                                                                            
+             <form onSubmit={onSubmit}>
+                   <div >
+                            
                             <input
+                                className='input'
                                 type="email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}  
                                 required                                    
-                                placeholder="Email address"                                
+                                placeholder="Email"                                
                             />
                         </div>
 
                         <div>
-                            <label htmlFor="password">
-                                Password
-                            </label>
                             <input
+                                className='input'
                                 type="password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)} 
@@ -61,10 +61,11 @@ const Signup = () => {
                         </div>                                             
                         
                         <button
+                        
                             type="submit" 
                             onClick={onSubmit}                        
                         >  
-                            Sign up                                
+                        SIGN UP
                         </button>
                                                                      
                     </form>
@@ -78,6 +79,7 @@ const Signup = () => {
                 </div>
             </div>
         </section>
+        <img className="image-container" src="./assets/image.png" alt="image" />  
     </main>
   )
 }
