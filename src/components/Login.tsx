@@ -20,6 +20,7 @@ const Login = () => {
             const errorCode = error.code;
             const errorMessage = error.message;
             console.log(errorCode, errorMessage)
+            alert("Mot de passe ou email incorrect");
         });
        
     }
