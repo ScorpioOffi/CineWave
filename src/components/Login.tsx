@@ -13,7 +13,7 @@ const Login = () => {
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const user = userCredential.user;
-            navigate("/home")
+            navigate("/profile")
             console.log(user);
         })
         .catch((error) => {
@@ -30,7 +30,7 @@ const Login = () => {
             <main >        
                 <section>
                     <div>                                            
-                        <p> Login </p>                       
+                        <h1> Login </h1>                       
                                                        
                         <form>                                              
                             <div>
@@ -72,7 +72,7 @@ const Login = () => {
                        
                         <p className="text-sm text-white text-center">
                             No account yet? {' '}
-                            <NavLink to="/signup">
+                            <NavLink to="/">
                                 Sign up
                             </NavLink>
                         </p>
