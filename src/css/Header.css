@@ -1,0 +1,40 @@
+header {
+    background-color: #3C392E;
+    padding: 10px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  nav a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  nav a:hover {
+    text-decoration: underline; 
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+  }
+  .links {
+    display: flex;
+    gap: 20px; 
+    align-self: center;
+    font-family: 'arial';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+
+    
+
+  }
+  
+  img.icon {
+    background-color: white;
+    width: 25px;
+    height: 25px;
+    padding: 16px;    
+    border-radius: 44px;
+        
+  }
