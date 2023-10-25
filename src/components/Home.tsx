@@ -99,7 +99,9 @@ export function Home() {
           <h2>Série Aléatoire</h2>
           <Link to={`/accueil/series/${randomSeries.id}`}>
             <img
-              src={`https://image.tmdb.org/t/p/w300/${randomSeries.poster_path}`}
+              src={randomSeries.poster_path
+                ? `https://image.tmdb.org/t/p/w300/${randomSeries.poster_path}`
+                : 'https://i.etsystatic.com/8515241/r/il/e246f8/519356100/il_570xN.519356100_ra4x.jpg'}
               alt={randomSeries.name}
             />
           </Link>
@@ -127,7 +129,9 @@ export function Home() {
           <li key={serie.id}>
             <Link to={`/accueil/series/${serie.id}`}>
               <img
-                src={`https://image.tmdb.org/t/p/w300/${serie.poster_path}`}
+                src={serie.poster_path
+                  ? `https://image.tmdb.org/t/p/w300/${serie.poster_path}`
+                  : 'https://i.etsystatic.com/8515241/r/il/e246f8/519356100/il_570xN.519356100_ra4x.jpg'}
                 alt={serie.name}
               />
               <button onClick={() => addToWatchlist(serie.id)}>+</button>
