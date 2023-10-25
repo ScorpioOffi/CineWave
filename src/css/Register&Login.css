@@ -1,0 +1,65 @@
+main {
+    display: grid;
+    grid-template-columns: 0fr 1fr;
+    background-color: #333;
+  }
+  
+  .form-container {
+    width: 400px;
+    margin-bottom: 0.5rem;
+  }
+
+  .lol{
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  
+  h1 {
+    text-align: center;  
+    font-weight: bold;
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  button {
+    background-color: #ffea81;
+    color: #333;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 1rem 3rem 1rem 3rem;
+    margin-left: 6rem;
+    margin-top: 1rem;
+    margin-bottom: 35rem;
+    
+    
+  }
+
+ input{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-right: 14rem;
+    margin-top: 0.8rem;
+    border: auto;
+      border-radius: 8px;
+      border-color: transparent;
+ }
+ ::placeholder {
+    color: #212121;
+    font-size: 1.5em;
+    padding-left: 1rem;
+  }
+  
+  img {
+    max-width: 65rem;
+    background-color: rgb(31, 28, 28);
+
+  }
+  
