@@ -1,4 +1,3 @@
-import React from 'react';
 import './css/App.css';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Login from './components/Login';
