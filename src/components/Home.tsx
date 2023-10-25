@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './../css/Home.css';
 import { Link } from 'react-router-dom';
 
@@ -13,6 +13,7 @@ interface Series {
 }
 
 interface RandomSeries {
+  
   id: number;
   name: string;
   overview: string;
@@ -96,7 +97,7 @@ export function Home() {
       {randomSeries && (
         <div>
           <h2>Série Aléatoire</h2>
-          <Link to={`/series/${randomSeries.id}`}>
+          <Link to={`/accueil/series/${randomSeries.id}`}>
             <img
               src={`https://image.tmdb.org/t/p/w300/${randomSeries.poster_path}`}
               alt={randomSeries.name}
@@ -107,7 +108,7 @@ export function Home() {
           <p>{randomSeries.number_of_seasons} Season</p>
           <p>{randomSeries.number_of_episodes} Episodes</p>
           <p>{randomSeries.genres.map((genre) => genre.name).join(', ')}</p>
-          <p>An{getYearFromDate(randomSeries.first_air_date)}</p>
+          <p>{getYearFromDate(randomSeries.first_air_date)}</p>
           <button onClick={() => addToWatchlist(randomSeries.id)}>+</button>
         </div>
       )}
@@ -124,7 +125,7 @@ export function Home() {
       <ul>
         {series.map((serie) => (
           <li key={serie.id}>
-            <Link to={`/series/${serie.id}`}>
+            <Link to={`/accueil/series/${serie.id}`}>
               <img
                 src={`https://image.tmdb.org/t/p/w300/${serie.poster_path}`}
                 alt={serie.name}
