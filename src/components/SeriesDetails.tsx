@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import '../css/SeriesDetails.css';
 
 const API_KEY = '7621f03a59813df069fb4c80cb30ec89';
 const API_BASE_URL = 'https://api.themoviedb.org/3';
@@ -35,7 +36,7 @@ const SeriesDetails = () => {
       };
     
     return (
-      <div>
+      <div className='body'>
         <h2>{serieDetails.name}</h2>
         <Link to={`/accueil/series/${serieDetails.id}`}>
           <img
