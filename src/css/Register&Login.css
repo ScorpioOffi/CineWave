@@ -1,0 +1,93 @@
+main {
+  display: grid;
+  grid-template-columns: 0fr 1fr;
+  background-color: #333;
+  position: fixed;
+}
+
+.form-container {
+  width: 400px;
+}
+
+.lol{
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.RL-h1 {
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  margin-left: 2rem;
+}
+
+.RL-button {
+  background-color: #ffea81;
+  color: #333;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 1rem 3rem 1rem 3rem;
+  margin-left: 3rem;
+  margin-top: 1rem;
+  margin-bottom: 25rem;
+}
+
+.RL-input{
+ 
+  margin-top: 0.8rem;
+  border: auto;
+    border-radius: 8px;
+    border-color: transparent;
+    font-size: 16px;
+  padding: 1rem;
+  width: 100%;
+}
+
+::placeholder {
+  color: #212121;
+  font-size: 1.5em;
+  padding-left: 1rem;
+}
+
+.image-RL {
+  max-width: 100%;
+  max-height: 100%;
+  background-color: rgb(31, 28, 28);
+
+}
+input::placeholder {
+  font-size: 16px; 
+}
+
+input:-webkit-input-placeholder {
+  font-size: 16px;
+}
+
+input:not(:placeholder-shown) {
+  font-size: 18px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+.sign-link {
+  text-decoration: none;
+  color: #ffea81;
+  font-weight: bold ;
+}
+
+.account{
+  color: white;
+  margin-left: 2rem;
+  font-size: small;
+}
