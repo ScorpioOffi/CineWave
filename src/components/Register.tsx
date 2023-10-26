@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { AuthError, createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth';
-import { auth } from '../database/firebase.config';
+import { auth, firestore } from '../database/firebase.config';
+import { addDoc, collection, doc, setDoc } from 'firebase/firestore';
 
 const Signup = () => {
     const navigate = useNavigate();
@@ -15,10 +16,14 @@ const Signup = () => {
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
             const user = userCredential.user;
-
             await sendEmailVerification(user);
             console.log("Compte créé avec succès. Veuillez vérifier votre e-mail.");
             navigate("/login");
+            const docRef = await addDoc(collection(firestore, "User"), {
+                email: email,
+                password: password,
+              });
+              console.log("Document written with ID: ", docRef.id);
         } catch (error: any) {
             const errorCode = error.code;
             const errorMessage = error.message;
