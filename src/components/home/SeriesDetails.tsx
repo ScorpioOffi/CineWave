@@ -9,6 +9,15 @@ const SeriesDetails = () => {
   const { id } = useParams<{ id: string }>();
   const [serieDetails, setSerieDetails] = useState<any>(null);
 
+  const getYearFromDate = (date: string) => {
+    const year = new Date(date).getFullYear();
+    return year;
+  };
+
+  const addToWatchlist = (serieId: number) => {
+    // Gestion pour l'ajout à la liste de séries suivies.
+  };
+
   useEffect(() => {
     const fetchSerieDetails = async () => {
       try {
@@ -29,19 +38,13 @@ const SeriesDetails = () => {
   }, [id]);
 
   if (serieDetails) {
-
-    const getYearFromDate = (date: string) => {
-        const year = new Date(date).getFullYear();
-        return year;
-      };
-    
     return (
       <div>
         <Navbar/>
         <h2>{serieDetails.name}</h2>
         <Link to={`/accueil/series/${serieDetails.id}`}>
           <img
-            src={serieDetails.poster_path ? `https://image.tmdb.org/t/p/w300/${serieDetails.poster_path}` : 'https://i.etsystatic.com/8515241/r/il/e246f8/519356100/il_570xN.519356100_ra4x.jpg'}
+            src={serieDetails.backdrop_path ? `https://image.tmdb.org/t/p/w300/${serieDetails.backdrop_path}` : 'https://i.etsystatic.com/8515241/r/il/e246f8/519356100/il_570xN.519356100_ra4x.jpg'}
             alt={serieDetails.name}
           />
         </Link>
@@ -50,8 +53,10 @@ const SeriesDetails = () => {
         <p>{serieDetails.number_of_episodes} Episodes</p>
         <p>{serieDetails.genres.map((genre: { name: any; }) => genre.name).join(', ')}</p>
         <p>{getYearFromDate(serieDetails.first_air_date)}</p>
+
+        <button onClick={() => addToWatchlist(serieDetails.id)}>+</button>
+
         <div>
-          <h3>Épisodes</h3>
           {serieDetails.seasons ? (
             serieDetails.seasons.map((season: any) => (
               <div key={season.id}>

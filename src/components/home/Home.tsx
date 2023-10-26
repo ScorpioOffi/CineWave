@@ -94,7 +94,7 @@ export function Home() {
     const year = new Date(date).getFullYear()
     return year
   }
-
+  
   return (
     <div>
       <Navbar/>
@@ -145,6 +145,9 @@ export function Home() {
                 alt={serie.name}
               />
               <button className='loik-button' onClick={() => addToWatchlist(serie.id)}>+</button>
+              <div>
+                <h4>{serie.name}</h4>
+              </div>
             </Link>
           </li>
         ))}
