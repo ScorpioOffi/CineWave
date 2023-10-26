@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import {  createUserWithEmailAndPassword  } from 'firebase/auth';
-import { auth } from '../../database/firebase.config';
+import {  createUserWithEmailAndPassword, sendEmailVerification  } from 'firebase/auth';
+import { auth, firestore } from '../../database/firebase.config';
 import './../../css/Register&Login.css'
+import { addDoc, collection } from 'firebase/firestore';
 
 const Signup = () => {
     const navigate = useNavigate();
@@ -11,22 +12,25 @@ const Signup = () => {
     const [password, setPassword] = useState('');
  
     const onSubmit = async (e: { preventDefault: () => void; }) => {
-      e.preventDefault()
-     
-      await createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
+        e.preventDefault();
+
+        try {
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
             const user = userCredential.user;
-            console.log(user);
-            navigate("/login")
-        })
-        .catch((error) => {
+            await sendEmailVerification(user);
+            console.log("Compte créé avec succès. Veuillez vérifier votre e-mail.");
+            navigate("/login");
+            const docRef = await addDoc(collection(firestore, "User"), {
+                email: email,
+                password: password,
+              });
+              console.log("Document written with ID: ", docRef.id);
+        } catch (error: any) {
             const errorCode = error.code;
             const errorMessage = error.message;
-            console.log(errorCode, errorMessage);
-        });
- 
-   
-    }
+            console.error("Erreur lors de la création du compte : ", errorCode, errorMessage);
+        }
+    };
  
   return (
     
