@@ -38,7 +38,7 @@ flex-wrap: wrap;
 justify-content: flex-start;
 align-content: flex-start;
 width: 100%;
-max-width: 1500px; 
+max-width: 1400px; 
 margin: 10px;
 }
 
@@ -55,8 +55,8 @@ margin: 10px;
 
 .loik-button{
     position: absolute;
-    margin-top: -27%;
-    margin-left: 17em;
+    margin-top: -24%;
+    margin-left: 16em;
     border-radius: 6px;
     background: rgba(255, 255, 255, 0.50);
     width: 42px;
