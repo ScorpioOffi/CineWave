@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
-import './../css/Home.css'
+import './Home.css'
 import { Link } from 'react-router-dom'
-import Navbar from './Navbar'
+import Navbar from '../navbar/Navbar'
+import colors from '../../ChartColor/Chart'
 
 const API_KEY = '7621f03a59813df069fb4c80cb30ec89'
 const API_BASE_URL = 'https://api.themoviedb.org/3'
@@ -96,13 +97,12 @@ export function Home() {
 
   return (
     <div>
-      <Navbar />
-
+      <Navbar/>
       {randomSeries && (
         <div>
-          <h2>Série Aléatoire</h2>
+          <h2 style={{color : colors.secondary}}>Série Aléatoire</h2>
           <Link to={`/accueil/series/${randomSeries.id}`}>
-            <img
+            <img className='layout'
               src={
                 randomSeries.poster_path
                   ? `https://image.tmdb.org/t/p/w300/${randomSeries.poster_path}`
@@ -111,17 +111,19 @@ export function Home() {
               alt={randomSeries.name}
             />
           </Link>
-          <h3>{randomSeries.name}</h3>
-          <p>{randomSeries.overview}</p>
-          <p>{randomSeries.number_of_seasons} Season</p>
-          <p>{randomSeries.number_of_episodes} Episodes</p>
-          <p>{randomSeries.genres.map(genre => genre.name).join(', ')}</p>
-          <p>{getYearFromDate(randomSeries.first_air_date)}</p>
-          <button onClick={() => addToWatchlist(randomSeries.id)}>+</button>
+          <div className='layout-name'>
+            <h3>{randomSeries.name}</h3>
+            <p>{randomSeries.overview}</p>
+            <p>{randomSeries.number_of_seasons} Season</p>
+            <p>{randomSeries.number_of_episodes} Episodes</p>
+            <p>{randomSeries.genres.map(genre => genre.name).join(', ')}</p>
+            <p>{getYearFromDate(randomSeries.first_air_date)}</p>
+            <button onClick={() => addToWatchlist(randomSeries.id)}>+</button>
+          </div>
         </div>
       )}
       <h1>Toutes les Séries</h1>
-      <div>
+      <div className='layout-button'>
         <button onClick={handleShowAll}>Tout afficher</button>
         <button onClick={() => handleGenreChange(28)}>Action</button>
         <button onClick={() => handleGenreChange(35)}>Comédie</button>
@@ -130,11 +132,11 @@ export function Home() {
         <button onClick={() => handleGenreChange(878)}>Science-Fiction</button>
         <button onClick={() => handleGenreChange(10752)}>Guerre</button>
       </div>
-      <ul>
+      <ul className='loik'>
         {series.map(serie => (
           <li key={serie.id}>
             <Link to={`/accueil/series/${serie.id}`}>
-              <img
+              <img className='loik-image'
                 src={
                   serie.poster_path
                     ? `https://image.tmdb.org/t/p/w300/${serie.poster_path}`
@@ -142,7 +144,7 @@ export function Home() {
                 }
                 alt={serie.name}
               />
-              <button onClick={() => addToWatchlist(serie.id)}>+</button>
+              <button className='loik-button' onClick={() => addToWatchlist(serie.id)}>+</button>
             </Link>
           </li>
         ))}

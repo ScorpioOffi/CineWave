@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import {  signInWithEmailAndPassword   } from 'firebase/auth';
-import { auth } from '../database/firebase.config';
+import { auth } from '../../database/firebase.config';
 import { NavLink, useNavigate } from 'react-router-dom'
+import './../../css/Register&Login.css'
  
 const Login = () => {
     const navigate = useNavigate();
@@ -22,18 +23,21 @@ const Login = () => {
             console.log(errorCode, errorMessage)
             alert("Mot de passe ou email incorrect");
         });
+       
     }
  
     return(
         <>
-            <main>        
-                <section className="form-container">
-                    <div className ="lol">                  
-                        <h1 className='h1'> Login </h1>                                                                                                         
+            <main >        
+            <section className="form-container">
+                 <div className ="lol">                  
+                 <h1 className='RL-h1'> Login </h1>                                                                            
+                                                       
                         <form onClick={onLogin}>                                              
                             <div>
+                                
                                 <input
-                                    className='input'
+                                    className='RL-input'
                                     id="email-address"
                                     name="email"
                                     type="email"                                    
@@ -44,8 +48,9 @@ const Login = () => {
                             </div>
 
                             <div>
+                              
                                 <input
-                                    className='input'
+                                    className='RL-input'
                                     id="password"
                                     name="password"
                                     type="password"                                    
@@ -54,9 +59,15 @@ const Login = () => {
                                     onChange={(e)=>setPassword(e.target.value)}
                                 />
                             </div>
+                            <p className="account">
+                                No account yet? {' '}
+                                <NavLink to="/" className="sign-link">
+                                      Sign up
+                                </NavLink>
+                        </p>   
                                                 
                             <div>
-                                <button                                    
+                                <button  className='RL-button'                                 
                                     onClick={onLogin}                                        
                                 >      
                                     LOGIN                                                                  
@@ -64,15 +75,11 @@ const Login = () => {
                             </div>                               
                         </form>
                        
-                        <p className="text-sm text-white text-center">
-                            No account yet? {' '}
-                            <NavLink to="/">
-                                Sign up
-                            </NavLink>
-                        </p>                           
+                                           
+                                                   
                     </div>
                 </section>
-                <img className="image-container" src="./assets/image.png" alt="image" />  
+                <img className="image-RL" src="./assets/image.png" alt="image" />  
 
             </main>
         </>

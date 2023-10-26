@@ -1,0 +1,64 @@
+.layout{
+    width: 250px;
+    height: auto;
+}
+
+.layout-container{
+    position: relative;
+    width: 800px;
+    height: 800px;
+}
+
+body {
+    background-color: #000000; 
+    color: #fff; 
+  }
+
+.layout-text{
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    color: #fff;
+    background-color: rgba(0,0,0,0,7);
+    padding: 10px;
+}
+
+.layout-button button{
+    border-radius: 10px;
+    transition: background-color 0.2;
+}
+
+.layout-button button:hover {
+    background-color: #FFE98A; 
+}
+
+.loik {
+display: flex;
+flex-wrap: wrap;
+justify-content: flex-start;
+align-content: flex-start;
+width: 100%;
+max-width: 1500px; 
+margin: 10px;
+}
+
+.loik li {
+    width: calc(20% - 20px);
+    margin: 10px;
+}
+
+.loik-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.loik-button{
+    position: absolute;
+    margin-top: -27%;
+    margin-left: 17em;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.50);
+    width: 42px;
+    height: 42px;
+}

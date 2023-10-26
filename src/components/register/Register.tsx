@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import {  createUserWithEmailAndPassword  } from 'firebase/auth';
-import { auth } from '../database/firebase.config';
-import '../css/Register&Login.css';
+import { auth } from '../../database/firebase.config';
+import './../../css/Register&Login.css'
 
 const Signup = () => {
     const navigate = useNavigate();
@@ -25,19 +25,22 @@ const Signup = () => {
             console.log(errorCode, errorMessage);
         });
  
+   
     }
  
   return (
     
-    <main>
+    <main>  
+              
        <section className="form-container">
             <div>
                 <div className ="lol">                  
-                    <h1 className='h1'> Register </h1>                                                                            
-                    <form onSubmit={onSubmit}>
-                        <div>
+                    <h1 className='RL-h1'> Register </h1>                                                                            
+             <form onSubmit={onSubmit}>
+                   <div >
+                            
                             <input
-                                className='input'
+                                className='RL-input'
                                 type="email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}  
@@ -48,16 +51,23 @@ const Signup = () => {
 
                         <div>
                             <input
-                                className='input'
+                                className='RL-input'
                                 type="password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)} 
                                 required                                 
                                 placeholder="Password"              
                             />
-                        </div>                                             
+                        </div>  
+                        <p className="account">
+                        Already have an account?{' '}
+                        <NavLink to="/login" className="sign-link"  >
+                            Sign in
+                        </NavLink>
+                    </p>                                            
                         
-                        <button
+                        <button className='RL-button'
+                        
                             type="submit" 
                             onClick={onSubmit}                        
                         >  
@@ -66,16 +76,11 @@ const Signup = () => {
                                                                      
                     </form>
                    
-                    <p>
-                        Already have an account?{' '}
-                        <NavLink to="/login" >
-                            Sign in
-                        </NavLink>
-                    </p>                   
+                                    
                 </div>
             </div>
         </section>
-        <img className="image-container" src="./assets/image.png" alt="image" />  
+        <img className="image-RL" src="./assets/image.png" alt="image" />  
     </main>
   )
 }

@@ -1,5 +1,5 @@
 import { NavLink, useNavigate } from 'react-router-dom'
-import './../css/Navbar.css';
+import './Navbar.css';
 
 const Navbar = () => {
 
@@ -8,13 +8,11 @@ const Navbar = () => {
 
       <nav>
         <div className="links">
-
-          <NavLink to="/home">Calendar</NavLink>  
-          <NavLink to="/login">Shows</NavLink>
-
+          <NavLink to="/calendar">Calendar</NavLink>  
+          <NavLink to="/accueil">Shows</NavLink>
         </div>
         <div className='profil'>
-        <NavLink to="/profile">Profil</NavLink>
+          <NavLink to="/profile">Profil</NavLink>
         </div>
 
         <NavLink to="/profile">
