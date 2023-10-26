@@ -45,6 +45,8 @@ const Profile = () => {
     };
 
     return (
+        <div>
+            <img className="image" src="./assets/image.png" alt="image" />  
         <div className='profil'>
             <h1 className='h1'>Profil de l'utilisateur</h1>
             <p className='text'>Adresse e-mail : {userEmail}</p>
@@ -68,6 +70,7 @@ const Profile = () => {
                 onChange={(e) => setNewPassword(e.target.value)}
             />
             <button className='button' onClick={handleUpdatePassword}>Modifier le mot de passe</button>
+        </div>
         </div>
     );
 }
