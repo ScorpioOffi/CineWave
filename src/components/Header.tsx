@@ -11,12 +11,15 @@ const Header = () => {
 
           <NavLink to="/home">Calendar</NavLink>  
           <NavLink to="/login">Shows</NavLink>
-          <NavLink to="/profile">Profil</NavLink>
 
+        </div>
+        <div className='profil'>
+        <NavLink to="/profile">Profil</NavLink>
         </div>
 
         <NavLink to="/profile">
         <img className="icon" src="./assets/icon.png" alt="image" />  
+
 
         </NavLink>
 
