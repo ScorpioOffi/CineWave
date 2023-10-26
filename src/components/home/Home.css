@@ -1,0 +1,62 @@
+.layout{
+    width: 250px;
+    height: auto;
+}
+
+.layout-container{
+    position: relative;
+    width: 800px;
+    height: 800px;
+    
+}
+
+body {
+    background-color: #000000; 
+    color: #fff; 
+  }
+
+.layout-text{
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    color: #fff;
+    background-color: rgba(0,0,0,0,7);
+    padding: 10px;
+}
+
+.layout-button{
+    display: flex;
+    padding: 8px;
+    align-items: flex-start;
+    gap: 10px;
+    border-radius: 10px;
+    
+    
+}
+
+
+.loik {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    width: 100%;
+    max-width: 1500px; 
+    margin: 10px;
+}
+
+.loik li {
+    width: calc(20% - 20px);
+    margin: 10px;
+  }
+  
+  .loik-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.loik-button{
+    display: flex;
+
+}
