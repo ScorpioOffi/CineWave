@@ -18,7 +18,7 @@ interface RandomSeries {
   id: number
   name: string
   overview: string
-  poster_path: string
+  backdrop_path: string
   number_of_seasons: number
   number_of_episodes: number
   genres: { id: number; name: string }[]
@@ -104,8 +104,8 @@ export function Home() {
           <Link to={`/accueil/series/${randomSeries.id}`}>
             <img className='layout'
               src={
-                randomSeries.poster_path
-                  ? `https://image.tmdb.org/t/p/w300/${randomSeries.poster_path}`
+                randomSeries.backdrop_path
+                  ? `https://image.tmdb.org/t/p/w300/${randomSeries.backdrop_path}`
                   : 'https://i.etsystatic.com/8515241/r/il/e246f8/519356100/il_570xN.519356100_ra4x.jpg'
               }
               alt={randomSeries.name}
