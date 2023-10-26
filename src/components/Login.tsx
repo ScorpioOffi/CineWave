@@ -22,19 +22,16 @@ const Login = () => {
             console.log(errorCode, errorMessage)
             alert("Mot de passe ou email incorrect");
         });
-       
     }
  
     return(
         <>
-            <main >        
-            <section className="form-container">
-                 <div className ="lol">                  
-                 <h1 className='h1'> Login </h1>                                                                            
-                                                       
+            <main>        
+                <section className="form-container">
+                    <div className ="lol">                  
+                        <h1 className='h1'> Login </h1>                                                                                                         
                         <form onClick={onLogin}>                                              
                             <div>
-                                
                                 <input
                                     className='input'
                                     id="email-address"
@@ -47,7 +44,6 @@ const Login = () => {
                             </div>
 
                             <div>
-                              
                                 <input
                                     className='input'
                                     id="password"
@@ -73,8 +69,7 @@ const Login = () => {
                             <NavLink to="/">
                                 Sign up
                             </NavLink>
-                        </p>
-                                                   
+                        </p>                           
                     </div>
                 </section>
                 <img className="image-container" src="./assets/image.png" alt="image" />  

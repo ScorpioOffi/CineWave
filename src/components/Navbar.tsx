@@ -1,7 +1,7 @@
 import { NavLink, useNavigate } from 'react-router-dom'
-import './../css/Header.css';
+import './../css/Navbar.css';
 
-const Header = () => {
+const Navbar = () => {
 
   return (
     <header>
@@ -30,4 +30,4 @@ const Header = () => {
 
 }
 
-export default Header;
+export default Navbar;

@@ -25,20 +25,17 @@ const Signup = () => {
             console.log(errorCode, errorMessage);
         });
  
-   
     }
  
   return (
     
-    <main>  
-              
+    <main>
        <section className="form-container">
             <div>
                 <div className ="lol">                  
                     <h1 className='h1'> Register </h1>                                                                            
-             <form onSubmit={onSubmit}>
-                   <div >
-                            
+                    <form onSubmit={onSubmit}>
+                        <div>
                             <input
                                 className='input'
                                 type="email"
@@ -61,7 +58,6 @@ const Signup = () => {
                         </div>                                             
                         
                         <button
-                        
                             type="submit" 
                             onClick={onSubmit}                        
                         >  
