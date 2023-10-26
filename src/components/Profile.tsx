@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { auth } from '../database/firebase.config';
 import { updateEmail, updatePassword } from 'firebase/auth';
+import '../css/Profile.css';
 
 const Profile = () => {
     const [userEmail, setUserEmail] = useState('');
@@ -44,27 +45,29 @@ const Profile = () => {
     };
 
     return (
-        <div>
-            <h1>Profil de l'utilisateur</h1>
-            <p>Adresse e-mail : {userEmail}</p>
+        <div className='profil'>
+            <h1 className='h1'>Profil de l'utilisateur</h1>
+            <p className='text'>Adresse e-mail : {userEmail}</p>
             
-            <h2>Modifier l'adresse e-mail</h2>
+            <h2 className='text'>Modifier l'adresse e-mail</h2>
             <input
+                className='aa'
                 type="email"
                 placeholder="Nouvelle adresse e-mail"
                 value={newEmail}
                 onChange={(e) => setNewEmail(e.target.value)}
             />
-            <button onClick={handleUpdateEmail}>Modifier l'adresse e-mail</button>
+            <button className="button" onClick={handleUpdateEmail}>Modifier l'adresse e-mail</button>
             
-            <h2>Modifier le mot de passe</h2>
+            <h2 className='text'>Modifier le mot de passe</h2>
             <input
+                className='aa'
                 type="password"
                 placeholder="Nouveau mot de passe"
                 value={newPassword}
                 onChange={(e) => setNewPassword(e.target.value)}
             />
-            <button onClick={handleUpdatePassword}>Modifier le mot de passe</button>
+            <button className='button' onClick={handleUpdatePassword}>Modifier le mot de passe</button>
         </div>
     );
 }
