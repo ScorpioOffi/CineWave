@@ -14,7 +14,7 @@ const Login = () => {
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const user = userCredential.user;
-            navigate("/home")
+            navigate("/accueil")
             console.log(user);
         })
         .catch((error) => {
@@ -22,18 +22,16 @@ const Login = () => {
             const errorMessage = error.message;
             console.log(errorCode, errorMessage)
             alert("Mot de passe ou email incorrect");
-        });
-       
+        });       
     }
  
     return(
         <>
-            <main >        
-            <section className="form-container">
-                 <div className ="lol">                  
-                 <h1 className='RL-h1'> Login </h1>                                                                            
-                                                       
-                        <form onClick={onLogin}>                                              
+            <main>        
+                <section className="form-container">
+                    <div className ="lol">                  
+                        <h1 className='RL-h1'> Login </h1>
+                        <form>                                              
                             <div>
                                 
                                 <input
@@ -53,8 +51,8 @@ const Login = () => {
                                     className='RL-input'
                                     id="password"
                                     name="password"
-                                    type="password"                                    
-                                    required                                                                                
+                                    type="password"
+                                    required
                                     placeholder="Password"
                                     onChange={(e)=>setPassword(e.target.value)}
                                 />
@@ -65,22 +63,18 @@ const Login = () => {
                                       Sign up
                                 </NavLink>
                         </p>   
-                                                
+
                             <div>
-                                <button  className='RL-button'                                 
-                                    onClick={onLogin}                                        
-                                >      
-                                    LOGIN                                                                  
+                                <button  className='RL-button'
+                                    onClick={onLogin}
+                                >
+                                    LOGIN
                                 </button>
-                            </div>                               
+                            </div>
                         </form>
-                       
-                                           
-                                                   
                     </div>
                 </section>
-                <img className="image-RL" src="./assets/image.png" alt="image" />  
-
+                <img className="image-RL" src="./assets/image.png" alt="image" />
             </main>
         </>
     )
