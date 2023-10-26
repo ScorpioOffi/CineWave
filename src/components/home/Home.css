@@ -62,3 +62,7 @@ margin: 10px;
     width: 42px;
     height: 42px;
 }
+
+ul{
+    list-style: none;
+}
