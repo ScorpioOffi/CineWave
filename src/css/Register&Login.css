@@ -6,7 +6,6 @@ main {
   
   .form-container {
     width: 400px;
-    margin-bottom: 0.5rem;
   }
 
   .lol{
@@ -24,6 +23,7 @@ main {
     color: white;
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
+    
   }
   
   button {
@@ -35,21 +35,23 @@ main {
     font-weight: bold;
     font-size: 1rem;
     padding: 1rem 3rem 1rem 3rem;
-    margin-left: 6rem;
+    margin-left: 3rem;
     margin-top: 1rem;
-    margin-bottom: 35rem;
+    margin-bottom: 25rem;
     
     
   }
 
+
  input{
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    padding-right: 14rem;
+   
     margin-top: 0.8rem;
     border: auto;
       border-radius: 8px;
       border-color: transparent;
+      font-size: 16px;
+    padding: 1rem;
+    width: 100%;
  }
  ::placeholder {
     color: #212121;
@@ -58,8 +60,20 @@ main {
   }
   
   img {
-    max-width: 65rem;
+    max-width: 100%;
+    max-height: 100%;
     background-color: rgb(31, 28, 28);
 
+  }
+  input::placeholder {
+    font-size: 16px; 
+  }
+  
+  input:-webkit-input-placeholder {
+    font-size: 16px;
+  }
+  
+  input:not(:placeholder-shown) {
+    font-size: 18px;
   }
   

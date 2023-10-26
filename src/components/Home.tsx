@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import './../css/Home.css';
 import { Link } from 'react-router-dom';
+import Header from './Header';
 
 const API_KEY = '7621f03a59813df069fb4c80cb30ec89';
 const API_BASE_URL = 'https://api.themoviedb.org/3';
@@ -94,6 +95,8 @@ export function Home() {
 
   return (
     <div>
+          <Header />
+
       {randomSeries && (
         <div>
           <h2>Série Aléatoire</h2>
