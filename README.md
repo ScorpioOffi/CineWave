@@ -1,8 +1,13 @@
 # CineWave
 
-Lancez l'application :
+Lancez l'application sur Windows :
 ```bash
 npm start
+```
+
+Lancez l'application sur Mac :
+```bash
+npm run dev
 ```
 
 ## Contributeurs
