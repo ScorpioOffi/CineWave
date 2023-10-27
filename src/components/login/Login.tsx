@@ -14,7 +14,7 @@ const Login = () => {
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const user = userCredential.user;
-            navigate("/comment")
+            navigate("/follow")
             console.log(user);
         })
         .catch((error) => {
