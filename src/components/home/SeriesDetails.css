@@ -4,7 +4,7 @@
     max-width: 100%; 
     object-fit: contain;
     border-radius: 10px; 
-  }
+}
 
 .details-name{
     position: relative;
@@ -15,11 +15,10 @@
 .text{
     text-align: center;
 }
+
 .h2{
     color: #FFE98A;
 }
-
-
 
 .details-name .text-details{
     position: absolute;

@@ -106,34 +106,24 @@ const SeriesDetails = () => {
         </div>
         <Comment />
 
-
         <div>
           {serieDetails.seasons ? (
             serieDetails.seasons.map((season: any) => (
-              <div key={season.id}>
+              <div key={season.id} className="season">
                 <h4>Saison {season.season_number}</h4>
-                {season.episodes ? (
-                  season.episodes.map((episode: any) => (
-                    <div key={episode.id}>
-                      <p>Épisode {episode.episode_number}: {episode.name}</p>
-                    </div>
-                  ))
-                ) : (
-                  <p>Pas d'épisodes disponibles pour cette saison.</p>
-                )}
+                <img
+                  src={season.poster_path ? `https://image.tmdb.org/t/p/w185/${season.poster_path}` : 'https://i.etsystatic.com/8515241/r/il/e246f8/519356100/il_570xN.519356100_ra4x.jpg'}
+                  alt={`Affiche de la saison ${season.season_number} introuvable`}
+                  title={`Date de sortie : ${season.air_date}, Nombre d'épisodes : ${season.episode_count}`}
+                />
               </div>
-          
             ))
           ) : (
             <p>Pas d'informations sur les saisons disponibles.</p>
           )}
         </div>
-
       </div>
-
     </>
-    
-
     );
   }
 
