@@ -29,31 +29,10 @@ export function Home() {
   const [series, setSeries] = useState<Series[]>([])
   const [randomSeries, setRandomSeries] = useState<RandomSeries | null>(null)
   const [selectedGenre, setSelectedGenre] = useState<number | null>(null)
-
-  useEffect(() => {
-    const fetchSeries = async () => {
-      try {
-        let url = `${API_BASE_URL}${SERIES_ENDPOINT}?api_key=${API_KEY}`
-
-        if (selectedGenre) {
-          url += `&with_genres=${selectedGenre}`
-        }
-
-        const response = await fetch(url)
-
-        if (response.ok) {
-          const data = await response.json()
-          setSeries(data.results)
-        } else {
-          console.error('Échec de la récupération des séries')
-        }
-      } catch (error) {
-        console.error('Error:', error)
-      }
-    }
-
-    fetchSeries()
-  }, [selectedGenre])
+  const [searchText, setSearchText] = useState('');
+  const [filteredSeries, setFilteredSeries] = useState<Series[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
   useEffect(() => {
     const fetchRandomSeries = async () => {
@@ -62,38 +41,75 @@ export function Home() {
           `${API_BASE_URL}/tv/${Math.floor(
             Math.random() * 1000
           )}?api_key=${API_KEY}`
-        )
+        );
 
         if (response.ok) {
-          const data = await response.json()
-          setRandomSeries(data)
+          const data = await response.json();
+          setRandomSeries(data);
         } else {
-          console.error('Échec de la récupération de la série aléatoire')
+          console.error('Échec de la récupération de la série aléatoire');
         }
       } catch (error) {
-        console.error('Error:', error)
+        console.error('Error:', error);
       }
-    }
+    };
 
-    fetchRandomSeries()
-  }, [])
+    fetchRandomSeries();
+  }, []);
+
+  useEffect(() => {
+    const fetchSeries = async () => {
+      try {
+        let url = `${API_BASE_URL}${SERIES_ENDPOINT}?api_key=${API_KEY}&page=${currentPage}`;
+
+        if (selectedGenre) {
+          url += `&with_genres=${selectedGenre}`;
+        }
+
+        const response = await fetch(url);
+
+        if (response.ok) {
+          const data = await response.json();
+          setSeries(data.results);
+          setTotalPages(data.total_pages);
+        } else {
+          console.error('Échec de la récupération des séries');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    };
+
+    fetchSeries();
+  }, [selectedGenre, currentPage]);
+
+  useEffect(() => {
+    const filterSeries = () => {
+      const filtered = series.filter((serie) =>
+        serie.name.toLowerCase().includes(searchText.toLowerCase())
+      );
+      setFilteredSeries(filtered);
+    };
+
+    filterSeries();
+  }, [searchText, series]);
 
   const handleGenreChange = (genreId: number) => {
-    setSelectedGenre(genreId)
-  }
+    setSelectedGenre(genreId);
+  };
 
   const handleShowAll = () => {
-    setSelectedGenre(null)
-  }
+    setSelectedGenre(null);
+  };
 
   const addToWatchlist = (serieId: number) => {
     // Gestion pour l'ajout à la liste de séries suivies.
-  }
+  };
 
   const getYearFromDate = (date: string) => {
-    const year = new Date(date).getFullYear()
-    return year
-  }
+    const year = new Date(date).getFullYear();
+    return year;
+  };
   
   return (
     <div>
@@ -126,6 +142,21 @@ export function Home() {
         </div>
       )}
       <h1>Toutes les Séries</h1>
+      <input
+        type="text"
+        placeholder="Search"
+        value={searchText}
+        onChange={(e) => setSearchText(e.target.value)}
+      />
+      <div className="pagination">
+        {currentPage > 1 && (
+          <button onClick={() => setCurrentPage(currentPage - 1)}>Précédent</button>
+        )}
+        <span>Page {currentPage} de {totalPages}</span>
+        {currentPage < totalPages && (
+          <button onClick={() => setCurrentPage(currentPage + 1)}>Suivant</button>
+        )}
+      </div>
       <div className='layout-button'>
         <button onClick={handleShowAll}>Tout afficher</button>
         <button onClick={() => handleGenreChange(28)}>Action</button>
