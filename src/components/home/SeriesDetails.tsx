@@ -48,9 +48,9 @@ const SeriesDetails = () => {
   if (serieDetails) {
     return (
       <>
-      <div>
+      <div className='text'>
         <Navbar/>
-        <h2>{serieDetails.name}</h2>
+        <h2 className='h2'>{serieDetails.name}</h2>
         <Link to={`/accueil/series/${serieDetails.id}`}>
           <img className='layout-Details'
             src={serieDetails.backdrop_path ? `https://image.tmdb.org/t/p/w1280/${serieDetails.backdrop_path}` : 'https://i.etsystatic.com/8515241/r/il/e246f8/519356100/il_570xN.519356100_ra4x.jpg'}

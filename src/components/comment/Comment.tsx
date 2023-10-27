@@ -84,7 +84,7 @@ const Comment = () => {
       <section>
         <div>
           <div className='test'>
-            <h1>Commentaires</h1>
+            <h1 className='h2'>Commentaires</h1>
             <form onSubmit={onSubmit}>
               <div>
                 <input

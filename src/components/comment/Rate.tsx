@@ -50,7 +50,7 @@ const Rate = () => {
       <div>
      
 
-            <h1>Choisissez une note :</h1>
+            <h1 className='h2'>Choisissez une note :</h1>
             <form onSubmit={rate}>
                 <label>
                   <input
