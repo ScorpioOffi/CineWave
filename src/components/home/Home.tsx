@@ -152,11 +152,11 @@ export function Home() {
       />
       <div className="pagination">
         {currentPage > 1 && (
-          <button onClick={() => setCurrentPage(currentPage - 1)}>Précédent</button>
+          <button className='button-pré'onClick={() => setCurrentPage(currentPage - 1)}>Précédent</button>
         )}
         <span>Page {currentPage} de {totalPages}</span>
         {currentPage < totalPages && (
-          <button onClick={() => setCurrentPage(currentPage + 1)}>Suivant</button>
+          <button className='button-pré' onClick={() => setCurrentPage(currentPage + 1)}>Suivant</button>
         )}
       </div>
       <div className='layout-button'>
@@ -186,7 +186,7 @@ export function Home() {
               >
                 +
               </button>
-              <div>
+              <div className='title'>
                 <h4>{serie.name}</h4>
               </div>
             </Link>

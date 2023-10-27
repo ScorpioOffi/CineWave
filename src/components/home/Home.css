@@ -139,6 +139,22 @@ ul{
   }
 
   .pagination{
-    
+    align-items: center;
   }
   
+  .title{
+    text-decoration: none;
+    color: white;
+  }
+
+  .button-pré{
+    background-color: #636668;
+    color: #fff; 
+    border: none; 
+    border-radius: 5px; 
+    padding: 10px 20px; 
+    cursor: pointer; 
+    margin-right: 20px;
+    margin-left: 20px;
+  
+  }
