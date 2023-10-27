@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Navbar from '../navbar/Navbar';
+import './SeriesDetails.css';
 import Comment from '../comment/Comment';
 
 const API_KEY = '7621f03a59813df069fb4c80cb30ec89';
@@ -47,17 +48,21 @@ const SeriesDetails = () => {
   if (serieDetails) {
     return (
       <>
-      <div>
+      <div className='text'>
         <Navbar/>
-        <h2>{serieDetails.name}</h2>
+        <h2 className='h2'>{serieDetails.name}</h2>
         <Link to={`/accueil/series/${serieDetails.id}`}>
-          <img
-            src={serieDetails.backdrop_path ? `https://image.tmdb.org/t/p/w300/${serieDetails.backdrop_path}` : 'https://i.etsystatic.com/8515241/r/il/e246f8/519356100/il_570xN.519356100_ra4x.jpg'}
+          <img className='layout-Details'
+            src={serieDetails.backdrop_path ? `https://image.tmdb.org/t/p/w300/${serieDetails.backdrop_path}` : 'https://media.istockphoto.com/id/1009987948/fr/vectoriel/tv-sans-illustration-de-fond-du-signal-illustration-vectorielle-illustration-eps10.jpg?s=612x612&w=0&k=20&c=W-nRFPCpv82twbmJPaOi_0_Z5yk8Lu9fCZoHrNKJPCM='}
             alt={serieDetails.name}
           />
 
         </Link>
-        <p>{serieDetails.overview}</p>
+        <div className='details-name'>
+          <div className='text-details'></div>
+            <p>{serieDetails.overview}</p>
+          </div>
+        <div className='details-SEN'></div>
         <p>{serieDetails.number_of_seasons} Seasons</p>
         <p>{serieDetails.number_of_episodes} Episodes</p>
         <p>{serieDetails.genres.map((genre: { name: any; }) => genre.name).join(', ')}</p>
@@ -70,9 +75,9 @@ const SeriesDetails = () => {
             ))}
           </ul>
         </div>
-
         <button onClick={() => addToWatchlist(serieDetails.id)}>+</button>
         <Comment />
+
 
         <div>
           {serieDetails.seasons ? (

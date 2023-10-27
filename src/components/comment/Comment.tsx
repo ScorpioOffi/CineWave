@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { firestore, auth } from '../../database/firebase.config';
-import { addDoc, collection, query, where, getDocs, DocumentData } from 'firebase/firestore';
+import { addDoc, collection, query, where, getDocs, DocumentData, updateDoc } from 'firebase/firestore';
 import { User } from 'firebase/auth';
+import Rate from './Rate';
+import './ComRate.css';
 
 const Comment = () => {
   const [commentaire, setCommentaire] = useState('');
@@ -29,7 +31,7 @@ const Comment = () => {
           const commentsArray: React.SetStateAction<any[]> = [];
           querySnapshot.forEach(async (doc) => {
             const userId = doc.id;
-            const userTableRef = collection(firestore, 'User', userId, 'comments');
+            const userTableRef = collection(firestore, 'User', userId, 'User');
             const commentsQuerySnapshot = await getDocs(userTableRef);
   
             commentsQuerySnapshot.forEach((commentDoc) => {
@@ -60,11 +62,9 @@ const Comment = () => {
         const querySnapshot = await getDocs(q);
 
         querySnapshot.forEach(async (doc) => {
-          const userDoc = doc.data();
-
           const userId = doc.id;
-          const userTableRef = collection(firestore, 'User', userId, 'comments');
-          await addDoc(userTableRef, {
+
+          await updateDoc(doc.ref, {
             comment: commentaire,
           });
         });
@@ -83,33 +83,36 @@ const Comment = () => {
     <main>
       <section>
         <div>
-          <div>
-            <h1>Commentaires</h1>
+          <div className='test'>
+            <h1 className='h2'>Commentaires</h1>
             <form onSubmit={onSubmit}>
               <div>
                 <input
                   type="text"
+                  className='com-input'
                   value={commentaire}
                   onChange={(e) => setCommentaire(e.target.value)}
                   required
-                  placeholder="Commentaire"
                 />
               </div>
-              <button className='RL-button' type="submit">
+              <button className='CR-button' type="submit">
                 Envoyer
               </button>
+              < Rate />
+              
             </form>
           </div>
         </div>
       </section>
-      <section>
+      {/* <section>
+        
         <h2>Commentaires existants :</h2>
         <ul>
           {comments.map((comment, index) => (
             <li key={index}>{comment.comment}</li>
           ))}
         </ul>
-      </section>
+      </section> */}
     </main>
   );
 };

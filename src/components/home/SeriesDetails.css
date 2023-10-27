@@ -1,0 +1,50 @@
+.layout-Details{
+    width: 1800px;
+    height: 600px; 
+    max-width: 100%; 
+    object-fit: contain;
+    border-radius: 10px; 
+  }
+
+.details-name{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.text{
+    text-align: center;
+}
+.h2{
+    color: #FFE98A;
+}
+
+
+
+.details-name .text-details{
+    position: absolute;
+    top: -280px; 
+    right: 50%;
+    left: 15%; 
+    color: #f5f0f0;
+    margin: 5px, 0;
+    padding: 5px;
+    border-radius: 5px; 
+    white-space: none;
+    font-size: 12px;
+    font-style: oblique;
+    transform: translate(5% , 5%);
+}
+
+.details-name .details-SEN{
+    position: absolute;
+    top: -180px;
+    right: 50%;
+    left: 250px;
+    color: #948a8a;
+    padding: 5px;
+    border-radius: 5px;
+    
+    
+
+}

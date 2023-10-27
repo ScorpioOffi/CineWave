@@ -17,6 +17,10 @@
   
   .text{
   color: white;
+  text-align: center;
+  }
+  .notif{
+    margin-left: 38%;
   }
   
   .aa{

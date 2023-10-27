@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { firestore, auth } from '../../database/firebase.config';
-import { addDoc, collection, query, where, getDocs, DocumentData } from 'firebase/firestore';
+import { addDoc, collection, query, where, getDocs, DocumentData, updateDoc } from 'firebase/firestore';
 import { User } from 'firebase/auth';
+
 
 const Rate = () => {
   const [user, setUser] = useState<User | null>(null);
@@ -27,9 +28,9 @@ const Rate = () => {
 
         querySnapshot.forEach(async (doc) => {
           const userId = doc.id;
-          const userTableRef = collection(firestore, 'User', userId, 'note');
-          await addDoc(userTableRef, {
-            note: note, 
+
+          await updateDoc(doc.ref, {
+            note: note,
           });
         });
 
@@ -47,7 +48,9 @@ const Rate = () => {
     <main>
       <section>
       <div>
-            <h1>Choisissez une note :</h1>
+     
+
+            <h1 className='h2'>Choisissez une note :</h1>
             <form onSubmit={rate}>
                 <label>
                   <input
@@ -57,7 +60,7 @@ const Rate = () => {
                     checked={note === '1'}
                     onChange={() => setNote('1')}
                   />
-                  1
+                  ☆
                 </label>
                 <label>
                   <input
@@ -67,7 +70,7 @@ const Rate = () => {
                     checked={note === '2'}
                     onChange={() => setNote('2')}
                   />
-                  2
+                   ☆
                 </label>
                 <label>
                   <input
@@ -77,7 +80,7 @@ const Rate = () => {
                     checked={note === '3'}
                     onChange={() => setNote('3')}
                   />
-                  3
+                    ☆
                 </label>
                 <label>
                   <input
@@ -87,7 +90,7 @@ const Rate = () => {
                     checked={note === '4'}
                     onChange={() => setNote('4')}
                   />
-                  4
+                   ☆
                 </label>
                 <label>
                   <input
@@ -97,18 +100,19 @@ const Rate = () => {
                     checked={note === '5'}
                     onChange={() => setNote('5')}
                   />
-                  5
+                 ☆
                 </label>
-                <button className='RL-button' type="submit" >
+                
+              </form>
+              <button className='CR-button' type="submit">
                 Envoyer
               </button>
-              </form>
               </div>
-
+            
       </section>
-      <section>
+      {/* <section>
         <p>Votre note : {note}</p>
-      </section>
+      </section> */}
     </main>
   );
 };
