@@ -130,12 +130,16 @@ export function Home() {
           </Link>
           <div className="layout-name">
             <h3>{randomSeries.name}</h3>
+            <div className='overview'>
             <p>{randomSeries.overview}</p>
-            <p>{randomSeries.number_of_seasons} Season</p>
-            <p>{randomSeries.number_of_episodes} Episodes</p>
-            <p>{randomSeries.genres.map((genre) => genre.name).join(', ')}</p>
-            <p>{getYearFromDate(randomSeries.first_air_date)}</p>
-            <button onClick={() => addToWatchlist(randomSeries.id)}>+</button>
+            </div>
+            <div className='details'>
+              <p>{randomSeries.number_of_seasons} Season</p>
+              <p>{randomSeries.number_of_episodes} Episodes</p>
+              <p>{getYearFromDate(randomSeries.first_air_date)}</p>
+              <p>{randomSeries.genres.map(genre => genre.name).join(', ')}</p> 
+            </div>
+            <button className='buttton' onClick={() => addToWatchlist(randomSeries.id)}>+</button>
           </div>
         </div>
       )}
@@ -155,7 +159,7 @@ export function Home() {
           <button onClick={() => setCurrentPage(currentPage + 1)}>Suivant</button>
         )}
       </div>
-      <div className="layout-button">
+      <div className='layout-button'>
         <button onClick={handleShowAll}>Tout afficher</button>
         <button onClick={() => handleGenreChange(28)}>Action</button>
         <button onClick={() => handleGenreChange(35)}>Comédie</button>
@@ -164,12 +168,12 @@ export function Home() {
         <button onClick={() => handleGenreChange(878)}>Science-Fiction</button>
         <button onClick={() => handleGenreChange(10752)}>Guerre</button>
       </div>
-      <ul className="loik">
+      <ul className='loik'>
         {filteredSeries.map((serie) => (
           <li key={serie.id}>
             <Link to={`/accueil/series/${serie.id}`}>
               <img
-                className="loik-image"
+                className='loik-image'
                 src={
                   serie.poster_path
                     ? `https://image.tmdb.org/t/p/w300/${serie.poster_path}`
@@ -178,7 +182,7 @@ export function Home() {
                 alt={serie.name}
               />
               <button
-                className="loik-button"
+                className='loik-button'
                 onClick={() => addToWatchlist(serie.id)}
               >
                 +
@@ -190,6 +194,7 @@ export function Home() {
           </li>
         ))}
       </ul>
+
     </div>
   );
 }
