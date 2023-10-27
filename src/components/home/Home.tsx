@@ -131,13 +131,13 @@ export function Home() {
           <div className="layout-name">
             <h3>{randomSeries.name}</h3>
             <div className='overview'>
-            <p>{randomSeries.overview}</p>
+              <p>{randomSeries.overview}</p>
             </div>
             <div className='details'>
               <p>{randomSeries.number_of_seasons} Season</p>
               <p>{randomSeries.number_of_episodes} Episodes</p>
               <p>{getYearFromDate(randomSeries.first_air_date)}</p>
-              <p>{randomSeries.genres.map(genre => genre.name).join(', ')}</p> 
+              <p>{randomSeries.genres.map(genre => genre.name).join(', ')}</p>
             </div>
             <button className='buttton' onClick={() => addToWatchlist(randomSeries.id)}>+</button>
           </div>
