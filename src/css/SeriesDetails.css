@@ -1,3 +1,13 @@
 .body{
     background-color: rgb(116, 116, 109);
 }
+
+.baniere {
+    width: 1500px;
+    height: 780px; 
+    max-width: 100%; 
+    object-fit: contain;
+    border-radius: 10px; 
+}
+
+  
