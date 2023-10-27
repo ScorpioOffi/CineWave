@@ -3,6 +3,9 @@ import { useParams, Link } from 'react-router-dom';
 import Navbar from '../navbar/Navbar';
 import './SeriesDetails.css';
 import Comment from '../comment/Comment';
+import { User } from 'firebase/auth';
+import { collection, query, where, getDocs, updateDoc } from 'firebase/firestore';
+import { firestore } from '../../database/firebase.config';
 
 const API_KEY = '7621f03a59813df069fb4c80cb30ec89';
 const API_BASE_URL = 'https://api.themoviedb.org/3';
@@ -11,6 +14,8 @@ const SeriesDetails = () => {
   const { id } = useParams<{ id: string }>();
   const [serieDetails, setSerieDetails] = useState<any>(null);
   const [cast, setCast] = useState<any[]>([]);
+  const [user, setUser] = useState<User | null>(null);
+  const [follow, setFollow] = useState([] as any[]);
 
   const getYearFromDate = (date: string) => {
     const year = new Date(date).getFullYear();
@@ -45,6 +50,30 @@ const SeriesDetails = () => {
     fetchSerieDetails();
   }, [id]);
 
+  const handleFollowClick = async () => {
+    if (user) {
+      try {
+          const userRef = collection(firestore, "User");
+          const q = query(userRef, where("email", "==", user.email));
+          const querySnapshot = await getDocs(q);
+  
+          querySnapshot.forEach(async (doc) => {
+            const userId = doc.id;
+  
+            await updateDoc(doc.ref, {
+              follow: true,
+              idSerie: serieDetails
+            });
+          });
+          console.log("Série ajoutée!");
+      } catch (error) {
+        console.error("Erreur lors du suivi de la série : ", error);
+      }
+    } else {
+      console.log("L'utilisateur n'est pas connecté. Vous devez être connecté pour suivre une série.");
+    }
+  };
+
   if (serieDetails) {
     return (
       <>
@@ -53,15 +82,14 @@ const SeriesDetails = () => {
         <h2 className='h2'>{serieDetails.name}</h2>
         <Link to={`/accueil/series/${serieDetails.id}`}>
           <img className='layout-Details'
-            src={serieDetails.backdrop_path ? `https://image.tmdb.org/t/p/w300/${serieDetails.backdrop_path}` : 'https://media.istockphoto.com/id/1009987948/fr/vectoriel/tv-sans-illustration-de-fond-du-signal-illustration-vectorielle-illustration-eps10.jpg?s=612x612&w=0&k=20&c=W-nRFPCpv82twbmJPaOi_0_Z5yk8Lu9fCZoHrNKJPCM='}
+            src={serieDetails.backdrop_path ? `https://image.tmdb.org/t/p/w1280/${serieDetails.backdrop_path}` : 'https://i.etsystatic.com/8515241/r/il/e246f8/519356100/il_570xN.519356100_ra4x.jpg'}
             alt={serieDetails.name}
           />
-
         </Link>
         <div className='details-name'>
           <div className='text-details'></div>
             <p>{serieDetails.overview}</p>
-          </div>
+        </div>
         <div className='details-SEN'></div>
         <p>{serieDetails.number_of_seasons} Seasons</p>
         <p>{serieDetails.number_of_episodes} Episodes</p>
@@ -75,7 +103,7 @@ const SeriesDetails = () => {
             ))}
           </ul>
         </div>
-        <button onClick={() => addToWatchlist(serieDetails.id)}>+</button>
+        <button onClick={handleFollowClick}>+</button>
         <Comment />
 
 
