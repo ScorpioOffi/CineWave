@@ -3,6 +3,7 @@ import { auth } from '../../database/firebase.config';
 import { updateEmail, updatePassword } from 'firebase/auth';
 import './Profile.css';
 import Notif from './notification';
+import Navbar from '../navbar/Navbar';
 
 const Profile = () => {
     const [userEmail, setUserEmail] = useState('');
@@ -47,6 +48,7 @@ const Profile = () => {
 
     return (
         <div>
+            < Navbar />
             <img className="image" src="./assets/image.png" alt="image" />  
         <div className='profil'>
             <h1 className='h1'>Profil de l'utilisateur</h1>
