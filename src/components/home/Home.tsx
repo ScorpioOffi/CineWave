@@ -1,34 +1,34 @@
-import { useState, useEffect } from 'react'
-import './Home.css'
-import { Link } from 'react-router-dom'
-import Navbar from '../navbar/Navbar'
-import colors from '../../ChartColor/Chart'
+import React, { useState, useEffect } from 'react';
+import './Home.css';
+import { Link } from 'react-router-dom';
+import Navbar from '../navbar/Navbar';
+import colors from '../../ChartColor/Chart';
 
-const API_KEY = '7621f03a59813df069fb4c80cb30ec89'
-const API_BASE_URL = 'https://api.themoviedb.org/3'
-const SERIES_ENDPOINT = '/discover/tv'
+const API_KEY = '7621f03a59813df069fb4c80cb30ec89';
+const API_BASE_URL = 'https://api.themoviedb.org/3';
+const SERIES_ENDPOINT = '/discover/tv';
 
 interface Series {
-  id: number
-  name: string
-  poster_path: string
+  id: number;
+  name: string;
+  poster_path: string;
 }
 
 interface RandomSeries {
-  id: number
-  name: string
-  overview: string
-  backdrop_path: string
-  number_of_seasons: number
-  number_of_episodes: number
-  genres: { id: number; name: string }[]
-  first_air_date: string
+  id: number;
+  name: string;
+  overview: string;
+  backdrop_path: string;
+  number_of_seasons: number;
+  number_of_episodes: number;
+  genres: { id: number; name: string }[];
+  first_air_date: string;
 }
 
 export function Home() {
-  const [series, setSeries] = useState<Series[]>([])
-  const [randomSeries, setRandomSeries] = useState<RandomSeries | null>(null)
-  const [selectedGenre, setSelectedGenre] = useState<number | null>(null)
+  const [series, setSeries] = useState<Series[]>([]);
+  const [randomSeries, setRandomSeries] = useState<RandomSeries | null>(null);
+  const [selectedGenre, setSelectedGenre] = useState<number | null>(null);
   const [searchText, setSearchText] = useState('');
   const [filteredSeries, setFilteredSeries] = useState<Series[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -110,15 +110,16 @@ export function Home() {
     const year = new Date(date).getFullYear();
     return year;
   };
-  
+
   return (
     <div>
-      <Navbar/>
+      <Navbar />
       {randomSeries && (
         <div>
-          <h2 style={{color : colors.secondary}}>Série Aléatoire</h2>
+          <h2 style={{ color: colors.secondary }}>Série Aléatoire</h2>
           <Link to={`/accueil/series/${randomSeries.id}`}>
-            <img className='layout'
+            <img
+              className="layout"
               src={
                 randomSeries.backdrop_path
                   ? `https://image.tmdb.org/t/p/w300/${randomSeries.backdrop_path}`
@@ -127,16 +128,16 @@ export function Home() {
               alt={randomSeries.name}
             />
           </Link>
-          <div className='layout-name'>
+          <div className="layout-name">
             <h3>{randomSeries.name}</h3>
             <div className='overview'>
             <p>{randomSeries.overview}</p>
             </div>
             <div className='details'>
-            <p >{randomSeries.number_of_seasons} Season</p>
-            <p >{randomSeries.number_of_episodes} Episodes</p>
-            <p>{getYearFromDate(randomSeries.first_air_date)}</p>
-            <p>{randomSeries.genres.map(genre => genre.name).join(', ')}</p>  
+              <p>{randomSeries.number_of_seasons} Season</p>
+              <p>{randomSeries.number_of_episodes} Episodes</p>
+              <p>{getYearFromDate(randomSeries.first_air_date)}</p>
+              <p>{randomSeries.genres.map(genre => genre.name).join(', ')}</p> 
             </div>
             <button className='buttton' onClick={() => addToWatchlist(randomSeries.id)}>+</button>
           </div>
@@ -195,7 +196,7 @@ export function Home() {
       </ul>
 
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;
