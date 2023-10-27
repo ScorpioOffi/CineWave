@@ -27,7 +27,7 @@ const Login = () => {
  
     return(
         <>
-            <main>        
+     <main className='RL'>  
                 <section className="form-container">
                     <div className ="lol">                  
                         <h1 className='RL-h1'> Login </h1>

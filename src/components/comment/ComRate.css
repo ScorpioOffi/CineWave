@@ -1,0 +1,20 @@
+.com-input{
+ 
+    margin-top: 0.8rem;
+    border: auto;
+      border-radius: 8px;
+      border-color: transparent;
+      font-size: 16px;
+    padding: 1rem;
+  }
+  .CR-button {
+    background-color: #ffea81;
+    color: #333;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 1rem 3rem 1rem 3rem;
+    margin-top: 1rem;
+  }
