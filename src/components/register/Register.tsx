@@ -34,7 +34,7 @@ const Signup = () => {
  
   return (
     
-    <main>  
+    <main className='RL'>  
               
        <section className="form-container">
             <div>

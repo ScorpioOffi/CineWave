@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { firestore, auth } from '../../database/firebase.config';
 import { addDoc, collection, query, where, getDocs, DocumentData } from 'firebase/firestore';
 import { User } from 'firebase/auth';
+import Rate from './Rate';
 
 const Comment = () => {
   const [commentaire, setCommentaire] = useState('');
@@ -95,6 +96,7 @@ const Comment = () => {
                   placeholder="Commentaire"
                 />
               </div>
+              < Rate />
               <button className='RL-button' type="submit">
                 Envoyer
               </button>
@@ -102,14 +104,15 @@ const Comment = () => {
           </div>
         </div>
       </section>
-      <section>
+      {/* <section>
+        
         <h2>Commentaires existants :</h2>
         <ul>
           {comments.map((comment, index) => (
             <li key={index}>{comment.comment}</li>
           ))}
         </ul>
-      </section>
+      </section> */}
     </main>
   );
 };
