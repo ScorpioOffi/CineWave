@@ -12,6 +12,13 @@
     flex-direction: column;
 }
 
+.text{
+    text-align: center;
+}
+.h2{
+    color: #FFE98A;
+}
+
 
 
 .details-name .text-details{
