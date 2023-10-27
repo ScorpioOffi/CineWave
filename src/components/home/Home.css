@@ -1,6 +1,6 @@
 .layout {
-    width: 1500px;
-    height: 7 80px; 
+    width: 1800px;
+    height: 600px; 
     max-width: 100%; 
     object-fit: contain;
     border-radius: 10px; 
@@ -34,6 +34,20 @@ body {
 
 .layout-button button:hover {
     background-color: #FFE98A; 
+}
+
+.buttton{
+  position: absolute;
+  top: -600px;
+  right: 250px;
+  margin: 10px; 
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.5);
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .loik {
@@ -75,29 +89,42 @@ ul{
     position: relative;
     display: flex;
     flex-direction: column;
+  
   }
   
   .layout-name h3 {
     position: absolute;
-    top: -250px; 
-    left: 10px; 
-    color: #fff; 
+    top: -320px; 
+    left: 250px; 
+    color: #3e3939; 
     padding: 5px;
     border-radius: 5px; 
   }
   
-  .layout-name p{
+  .layout-name .overview{
+    
     position: absolute;
-    top: -200px; 
-    left: 10px; 
-    color: #fff;
-   margin: 5px, 0;
+    top: -280px; 
+    right: 50%;
+    left: 15%; 
+    color: #a89b9b;
+    margin: 5px, 0;
     padding: 5px;
     border-radius: 5px; 
+    white-space: none;
+    font-size: 11px;
+    font-style: oblique;
+    transform: translate(5% , 5%);
   }
 
-  .info {
-    display: flex;
-    flex-direction: column;
+  .layout-name .details {
+    position: absolute;
+    top: -150px;
+    right: 50%;
+    left: 250px;
+    color: #948a8a;
+    padding: 5px;
+    border-radius: 5px;
+    
   }
   
