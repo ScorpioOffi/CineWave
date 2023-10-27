@@ -69,6 +69,7 @@ body {
 .loik li {
     width: calc(20% - 20px);
     margin: 10px;
+    text-decoration: none;
 }
 
 .tab-image {
@@ -135,8 +136,8 @@ ul{
   }
 
   .recherche{
-    margin-left: 40%;
-    width: 300px;
+    margin-left: 33%;
+    width: 500px;
     padding: 10px;
     border: 2px solid #ccc;
     border-radius: 5px;
