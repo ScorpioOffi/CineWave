@@ -123,7 +123,7 @@ export function Home() {
               src={
                 randomSeries.backdrop_path
                   ? `https://image.tmdb.org/t/p/w300/${randomSeries.backdrop_path}`
-                  : 'https://i.etsystatic.com/8515241/r/il/e246f8/519356100/il_570xN.519356100_ra4x.jpg'
+                  : 'https://media.istockphoto.com/id/1009987948/fr/vectoriel/tv-sans-illustration-de-fond-du-signal-illustration-vectorielle-illustration-eps10.jpg?s=612x612&w=0&k=20&c=W-nRFPCpv82twbmJPaOi_0_Z5yk8Lu9fCZoHrNKJPCM='
               }
               alt={randomSeries.name}
             />
@@ -131,20 +131,20 @@ export function Home() {
           <div className="layout-name">
             <h3>{randomSeries.name}</h3>
             <div className='overview'>
-            <p>{randomSeries.overview}</p>
+              <p>{randomSeries.overview}</p>
             </div>
             <div className='details'>
               <p>{randomSeries.number_of_seasons} Season</p>
               <p>{randomSeries.number_of_episodes} Episodes</p>
               <p>{getYearFromDate(randomSeries.first_air_date)}</p>
-              <p>{randomSeries.genres.map(genre => genre.name).join(', ')}</p> 
+              <p>{randomSeries.genres.map(genre => genre.name).join(', ')}</p>
             </div>
             <button className='buttton' onClick={() => addToWatchlist(randomSeries.id)}>+</button>
           </div>
         </div>
       )}
       <h1>Toutes les Séries</h1>
-      <input
+      <input className='recherche'
         type="text"
         placeholder="Search"
         value={searchText}
@@ -172,12 +172,11 @@ export function Home() {
         {filteredSeries.map((serie) => (
           <li key={serie.id}>
             <Link to={`/accueil/series/${serie.id}`}>
-              <img
-                className='loik-image'
+              <img className='tab-image'
                 src={
                   serie.poster_path
                     ? `https://image.tmdb.org/t/p/w300/${serie.poster_path}`
-                    : 'https://i.etsystatic.com/8515241/r/il/e246f8/519356100/il_570xN.519356100_ra4x.jpg'
+                    : 'https://media.istockphoto.com/id/1009987948/fr/vectoriel/tv-sans-illustration-de-fond-du-signal-illustration-vectorielle-illustration-eps10.jpg?s=612x612&w=0&k=20&c=W-nRFPCpv82twbmJPaOi_0_Z5yk8Lu9fCZoHrNKJPCM='
                 }
                 alt={serie.name}
               />
