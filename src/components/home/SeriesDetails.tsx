@@ -85,6 +85,7 @@ const SeriesDetails = () => {
             src={serieDetails.backdrop_path ? `https://image.tmdb.org/t/p/w1280/${serieDetails.backdrop_path}` : 'https://i.etsystatic.com/8515241/r/il/e246f8/519356100/il_570xN.519356100_ra4x.jpg'}
             alt={serieDetails.name}
           />
+          <button onClick={handleFollowClick}>+</button>
         </Link>
         <div className='details-name'>
           <div className='text-details'></div>
@@ -103,7 +104,6 @@ const SeriesDetails = () => {
             ))}
           </ul>
         </div>
-        <button onClick={handleFollowClick}>+</button>
         <Comment />
 
 
