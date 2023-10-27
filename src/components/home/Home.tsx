@@ -122,7 +122,7 @@ export function Home() {
               className="layout"
               src={
                 randomSeries.backdrop_path
-                  ? `https://image.tmdb.org/t/p/w300/${randomSeries.backdrop_path}`
+                  ? `https://image.tmdb.org/t/p/w1280/${randomSeries.backdrop_path}`
                   : 'https://media.istockphoto.com/id/1009987948/fr/vectoriel/tv-sans-illustration-de-fond-du-signal-illustration-vectorielle-illustration-eps10.jpg?s=612x612&w=0&k=20&c=W-nRFPCpv82twbmJPaOi_0_Z5yk8Lu9fCZoHrNKJPCM='
               }
               alt={randomSeries.name}
@@ -175,7 +175,7 @@ export function Home() {
               <img className='tab-image'
                 src={
                   serie.poster_path
-                    ? `https://image.tmdb.org/t/p/w300/${serie.poster_path}`
+                    ? `https://image.tmdb.org/t/p/w1280/${serie.poster_path}`
                     : 'https://media.istockphoto.com/id/1009987948/fr/vectoriel/tv-sans-illustration-de-fond-du-signal-illustration-vectorielle-illustration-eps10.jpg?s=612x612&w=0&k=20&c=W-nRFPCpv82twbmJPaOi_0_Z5yk8Lu9fCZoHrNKJPCM='
                 }
                 alt={serie.name}
