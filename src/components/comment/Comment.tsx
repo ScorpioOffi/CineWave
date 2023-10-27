@@ -3,6 +3,7 @@ import { firestore, auth } from '../../database/firebase.config';
 import { addDoc, collection, query, where, getDocs, DocumentData } from 'firebase/firestore';
 import { User } from 'firebase/auth';
 import Rate from './Rate';
+import './ComRate.css';
 
 const Comment = () => {
   const [commentaire, setCommentaire] = useState('');
@@ -84,22 +85,23 @@ const Comment = () => {
     <main>
       <section>
         <div>
-          <div>
+          <div className='test'>
             <h1>Commentaires</h1>
             <form onSubmit={onSubmit}>
               <div>
                 <input
                   type="text"
+                  className='com-input'
                   value={commentaire}
                   onChange={(e) => setCommentaire(e.target.value)}
                   required
-                  placeholder="Commentaire"
                 />
               </div>
-              < Rate />
-              <button className='RL-button' type="submit">
+              <button className='CR-button' type="submit">
                 Envoyer
               </button>
+              < Rate />
+              
             </form>
           </div>
         </div>

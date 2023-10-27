@@ -104,7 +104,7 @@ const Rate = () => {
                 </label>
                 
               </form>
-              <button className='RL-button' type="submit">
+              <button className='CR-button' type="submit">
                 Envoyer
               </button>
               </div>
