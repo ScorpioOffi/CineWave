@@ -176,7 +176,7 @@ export function Home() {
                 src={
                   serie.poster_path
                     ? `https://image.tmdb.org/t/p/w1280/${serie.poster_path}`
-                    : 'https://media.istockphoto.com/id/1009987948/fr/vectoriel/tv-sans-illustration-de-fond-du-signal-illustration-vectorielle-illustration-eps10.jpg?s=612x612&w=0&k=20&c=W-nRFPCpv82twbmJPaOi_0_Z5yk8Lu9fCZoHrNKJPCM='
+                    : 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.fr%2Fvalrieschouteet%2Fpoint-interrogation%2F&psig=AOvVaw2pHCYRN-w7d9YjWmIVQv9b&ust=1698517960198000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCPj8mc_uloIDFQAAAAAdAAAAABA8'
                 }
                 alt={serie.name}
               />

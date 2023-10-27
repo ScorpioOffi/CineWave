@@ -83,7 +83,7 @@ const SeriesDetails = () => {
               <div key={season.id} className="season">
                 <h4>Saison {season.season_number}</h4>
                 <img
-                  src={season.poster_path ? `https://image.tmdb.org/t/p/w185/${season.poster_path}` : 'URL_PAR_DEFAUT_SI_PAS_DAFFICHE'}
+                  src={season.poster_path ? `https://image.tmdb.org/t/p/w185/${season.poster_path}` : 'https://i.etsystatic.com/8515241/r/il/e246f8/519356100/il_570xN.519356100_ra4x.jpg'}
                   alt={`Affiche de la saison ${season.season_number} introuvable`}
                   title={`Date de sortie : ${season.air_date}, Nombre d'épisodes : ${season.episode_count}`}
                 />
