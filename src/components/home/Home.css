@@ -65,7 +65,7 @@ margin: 10px;
     margin: 10px;
 }
 
-.loik-image {
+.tab-image {
     width: 100%;
     height: auto;
     display: block;
@@ -107,7 +107,7 @@ ul{
     top: -280px; 
     right: 50%;
     left: 15%; 
-    color: #a89b9b;
+    color: #dacbcb;
     margin: 5px, 0;
     padding: 5px;
     border-radius: 5px; 
