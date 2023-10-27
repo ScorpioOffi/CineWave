@@ -144,7 +144,7 @@ export function Home() {
         </div>
       )}
       <h1>Toutes les Séries</h1>
-      <input
+      <input className='recherche'
         type="text"
         placeholder="Search"
         value={searchText}
