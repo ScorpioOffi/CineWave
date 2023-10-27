@@ -53,7 +53,7 @@ const SeriesDetails = () => {
         <h2>{serieDetails.name}</h2>
         <Link to={`/accueil/series/${serieDetails.id}`}>
           <img className='layout-Details'
-            src={serieDetails.backdrop_path ? `https://image.tmdb.org/t/p/w300/${serieDetails.backdrop_path}` : 'https://i.etsystatic.com/8515241/r/il/e246f8/519356100/il_570xN.519356100_ra4x.jpg'}
+            src={serieDetails.backdrop_path ? `https://image.tmdb.org/t/p/w300/${serieDetails.backdrop_path}` : 'https://media.istockphoto.com/id/1009987948/fr/vectoriel/tv-sans-illustration-de-fond-du-signal-illustration-vectorielle-illustration-eps10.jpg?s=612x612&w=0&k=20&c=W-nRFPCpv82twbmJPaOi_0_Z5yk8Lu9fCZoHrNKJPCM='}
             alt={serieDetails.name}
           />
 
