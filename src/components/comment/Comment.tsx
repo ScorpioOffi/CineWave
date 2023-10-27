@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { firestore, auth } from '../../database/firebase.config';
-import { addDoc, collection, query, where, getDocs, DocumentData } from 'firebase/firestore';
+import { addDoc, collection, query, where, getDocs, DocumentData, updateDoc } from 'firebase/firestore';
 import { User } from 'firebase/auth';
 import Rate from './Rate';
 import './ComRate.css';
@@ -31,7 +31,7 @@ const Comment = () => {
           const commentsArray: React.SetStateAction<any[]> = [];
           querySnapshot.forEach(async (doc) => {
             const userId = doc.id;
-            const userTableRef = collection(firestore, 'User', userId, 'comments');
+            const userTableRef = collection(firestore, 'User', userId, 'User');
             const commentsQuerySnapshot = await getDocs(userTableRef);
   
             commentsQuerySnapshot.forEach((commentDoc) => {
@@ -62,11 +62,9 @@ const Comment = () => {
         const querySnapshot = await getDocs(q);
 
         querySnapshot.forEach(async (doc) => {
-          const userDoc = doc.data();
-
           const userId = doc.id;
-          const userTableRef = collection(firestore, 'User', userId, 'comments');
-          await addDoc(userTableRef, {
+
+          await updateDoc(doc.ref, {
             comment: commentaire,
           });
         });

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { firestore, auth } from '../../database/firebase.config';
-import { addDoc, collection, query, where, getDocs, DocumentData } from 'firebase/firestore';
+import { addDoc, collection, query, where, getDocs, DocumentData, updateDoc } from 'firebase/firestore';
 import { User } from 'firebase/auth';
 
 
@@ -28,9 +28,9 @@ const Rate = () => {
 
         querySnapshot.forEach(async (doc) => {
           const userId = doc.id;
-          const userTableRef = collection(firestore, 'User', userId, 'note');
-          await addDoc(userTableRef, {
-            note: note, 
+
+          await updateDoc(doc.ref, {
+            note: note,
           });
         });
 
