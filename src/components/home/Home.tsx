@@ -135,6 +135,7 @@ export function Home() {
             <div className='details'>
             <p >{randomSeries.number_of_seasons} Season</p>
             <p >{randomSeries.number_of_episodes} Episodes</p>
+            <p>{getYearFromDate(randomSeries.first_air_date)}</p>
             <p>{randomSeries.genres.map(genre => genre.name).join(', ')}</p>  
             </div>
             <button className='buttton' onClick={() => addToWatchlist(randomSeries.id)}>+</button>
@@ -167,10 +168,11 @@ export function Home() {
         <button onClick={() => handleGenreChange(10752)}>Guerre</button>
       </div>
       <ul className='loik'>
-        {series.map(serie => (
+        {filteredSeries.map((serie) => (
           <li key={serie.id}>
             <Link to={`/accueil/series/${serie.id}`}>
-              <img className='loik-image'
+              <img
+                className='loik-image'
                 src={
                   serie.poster_path
                     ? `https://image.tmdb.org/t/p/w300/${serie.poster_path}`
@@ -178,7 +180,12 @@ export function Home() {
                 }
                 alt={serie.name}
               />
-              <button className='loik-button' onClick={() => addToWatchlist(serie.id)}>+</button>
+              <button
+                className='loik-button'
+                onClick={() => addToWatchlist(serie.id)}
+              >
+                +
+              </button>
               <div>
                 <h4>{serie.name}</h4>
               </div>
@@ -186,6 +193,7 @@ export function Home() {
           </li>
         ))}
       </ul>
+
     </div>
   )
 }
