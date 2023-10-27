@@ -1,7 +1,12 @@
-.layout{
-    width: 250px;
-    height: auto;
-}
+.layout {
+    width: 1500px;
+    height: 7 80px; 
+    max-width: 100%; 
+    object-fit: contain;
+    border-radius: 10px; 
+  }
+  
+  
 
 .layout-container{
     position: relative;
@@ -25,7 +30,6 @@ body {
 
 .layout-button button{
     border-radius: 10px;
-    transition: background-color 0.2;
 }
 
 .layout-button button:hover {
@@ -66,3 +70,34 @@ margin: 10px;
 ul{
     list-style: none;
 }
+
+.layout-name {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .layout-name h3 {
+    position: absolute;
+    top: -250px; 
+    left: 10px; 
+    color: #fff; 
+    padding: 5px;
+    border-radius: 5px; 
+  }
+  
+  .layout-name p{
+    position: absolute;
+    top: -200px; 
+    left: 10px; 
+    color: #fff;
+   margin: 5px, 0;
+    padding: 5px;
+    border-radius: 5px; 
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+  }
+  
