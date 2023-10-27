@@ -6,6 +6,9 @@
     border-radius: 10px; 
   }
   
+.text{
+  text-align: center;
+}
   
 
 .layout-container{
@@ -29,7 +32,10 @@ body {
 }
 
 .layout-button button{
+  margin-left: auto;
     border-radius: 10px;
+    font-size: 20px;
+
 }
 
 .layout-button button:hover {
@@ -129,11 +135,12 @@ ul{
   }
 
   .recherche{
-    width: 200px;
+    margin-left: 40%;
+    width: 300px;
     padding: 10px;
     border: 2px solid #ccc;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 18px;
     outline: none;
 
   }

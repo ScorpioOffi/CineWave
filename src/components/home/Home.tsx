@@ -115,7 +115,7 @@ export function Home() {
     <div>
       <Navbar />
       {randomSeries && (
-        <div>
+        <div className='text'>
           <h2 style={{ color: colors.secondary }}>Série Aléatoire</h2>
           <Link to={`/accueil/series/${randomSeries.id}`}>
             <img
@@ -143,14 +143,14 @@ export function Home() {
           </div>
         </div>
       )}
-      <h1>Toutes les Séries</h1>
+      <h1 className='text'>Toutes les Séries</h1>
       <input className='recherche'
         type="text"
         placeholder="Search"
         value={searchText}
         onChange={(e) => setSearchText(e.target.value)}
       />
-      <div className="pagination">
+      <div className="text">
         {currentPage > 1 && (
           <button className='button-pré'onClick={() => setCurrentPage(currentPage - 1)}>Précédent</button>
         )}
