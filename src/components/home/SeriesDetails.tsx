@@ -59,10 +59,10 @@ const SeriesDetails = () => {
 
         </Link>
         <div className='details-name'>
-          <div className='text-details'>
-        <p>{serieDetails.overview}</p>
+          <div className='text-details'></div>
+            <p>{serieDetails.overview}</p>
           </div>
-          <div className='details-SEN'>
+        <div className='details-SEN'></div>
         <p>{serieDetails.number_of_seasons} Seasons</p>
         <p>{serieDetails.number_of_episodes} Episodes</p>
         <p>{serieDetails.genres.map((genre: { name: any; }) => genre.name).join(', ')}</p>
@@ -75,9 +75,9 @@ const SeriesDetails = () => {
             ))}
           </ul>
         </div>
-
         <button onClick={() => addToWatchlist(serieDetails.id)}>+</button>
         <Comment />
+
 
         <div>
           {serieDetails.seasons ? (
