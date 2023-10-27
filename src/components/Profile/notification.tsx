@@ -46,10 +46,11 @@ const Notif = () => {
 
   return (
     <div>
-      <h2>Souhaitez-vous être notifié ?</h2>
+      <h2 className='text'>Souhaitez-vous être notifié ?</h2>
       <form onSubmit={notiftrue}>
         <label>
-          <input
+          <input 
+          className='notif'
             type="radio"
             name="notification"
             value="1"
