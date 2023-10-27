@@ -193,7 +193,6 @@ export function Home() {
           </li>
         ))}
       </ul>
-
     </div>
   );
 }
