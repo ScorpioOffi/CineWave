@@ -20,34 +20,35 @@ const Comment = () => {
   }, []);
 
   const loadComments = async () => {
-    try {
-      const userRef = collection(firestore, "User");
-      const q = query(userRef, where("email", "==", "exemple@gmail.com"));
-      const querySnapshot = await getDocs(q);
-
-      if (!querySnapshot.empty) {
-        const commentsArray: any[] = []; 
-        querySnapshot.forEach(async (doc) => {
-          const userId = doc.id;
-          const userTableRef = collection(firestore, 'User', userId, 'comments');
-          const commentsQuerySnapshot = await getDocs(userTableRef);
-
-          commentsArray.length = 0;
-
-          commentsQuerySnapshot.forEach((commentDoc) => {
-            const commentData = commentDoc.data();
-            commentsArray.push(commentData);
+    if (user) {
+      try {
+        const q = query(collection(firestore, "User"), where("email", "==", user.email));
+        const querySnapshot = await getDocs(q);
+  
+        if (!querySnapshot.empty) {
+          const commentsArray: React.SetStateAction<any[]> = [];
+          querySnapshot.forEach(async (doc) => {
+            const userId = doc.id;
+            const userTableRef = collection(firestore, 'User', userId, 'comments');
+            const commentsQuerySnapshot = await getDocs(userTableRef);
+  
+            commentsQuerySnapshot.forEach((commentDoc) => {
+              const commentData = commentDoc.data();
+              commentsArray.push(commentData);
+            });
           });
-        });
-
-        setComments(commentsArray);
-      } else {
-        console.log("Aucun utilisateur correspondant à l'e-mail n'a été trouvé.");
+  
+          console.log("Comments Array: ", commentsArray); 
+          setComments(commentsArray);
+        } else {
+          console.log("Aucun utilisateur correspondant à l'e-mail n'a été trouvé.");
+        }
+      } catch (error) {
+        console.error("Erreur lors du chargement des commentaires : ", error);
       }
-    } catch (error: any) {
-      console.error("Erreur lors du chargement des commentaires : ", error);
     }
   };
+  
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
