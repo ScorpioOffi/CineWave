@@ -5,7 +5,7 @@ import Home from './components/home/Home'
 import SeriesDetails from './components/home/SeriesDetails'
 import SignUp from './components/register/Register'
 import Profile from './components/Profile/Profile'
-import Comment from './components/comment/Comment'
+import Note from './components/comment/Rate'
 
 function App() {
   return (
@@ -17,7 +17,6 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/' element={<SignUp />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/comment" element={<Comment />} />
         </Routes>
       </BrowserRouter>
     </div>
