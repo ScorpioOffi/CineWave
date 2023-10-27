@@ -9,6 +9,7 @@ const API_BASE_URL = 'https://api.themoviedb.org/3';
 const SeriesDetails = () => {
   const { id } = useParams<{ id: string }>();
   const [serieDetails, setSerieDetails] = useState<any>(null);
+  const [cast, setCast] = useState<any[]>([]);
 
   const getYearFromDate = (date: string) => {
     const year = new Date(date).getFullYear();
@@ -22,18 +23,23 @@ const SeriesDetails = () => {
   useEffect(() => {
     const fetchSerieDetails = async () => {
       try {
-        const response = await fetch(`${API_BASE_URL}/tv/${id}?api_key=${API_KEY}`);
-
-        if (response.ok) {
-          const data = await response.json();
-          setSerieDetails(data);
+        const [serieResponse, creditsResponse] = await Promise.all([
+          fetch(`${API_BASE_URL}/tv/${id}?api_key=${API_KEY}`),
+          fetch(`${API_BASE_URL}/tv/${id}/credits?api_key=${API_KEY}`)
+        ]);
+    
+        if (serieResponse.ok && creditsResponse.ok) {
+          const [serieData, creditsData] = await Promise.all([serieResponse.json(), creditsResponse.json()]);
+    
+          setSerieDetails(serieData);
+          setCast(creditsData.cast);
         } else {
           console.error('Échec de la récupération des détails de la série');
         }
       } catch (error) {
         console.error('Error:', error);
       }
-    };
+    };    
 
     fetchSerieDetails();
   }, [id]);
@@ -56,10 +62,17 @@ const SeriesDetails = () => {
         <p>{serieDetails.number_of_episodes} Episodes</p>
         <p>{serieDetails.genres.map((genre: { name: any; }) => genre.name).join(', ')}</p>
         <p>{getYearFromDate(serieDetails.first_air_date)}</p>
+        <div>
+          <h3>Acteurs :</h3>
+          <ul>
+            {cast.map((actor: any) => (
+              <li key={actor.id}>{actor.name} - {actor.character}</li>
+            ))}
+          </ul>
+        </div>
 
         <button onClick={() => addToWatchlist(serieDetails.id)}>+</button>
         <Comment />
-
 
         <div>
           {serieDetails.seasons ? (
