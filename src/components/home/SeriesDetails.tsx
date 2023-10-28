@@ -5,7 +5,8 @@ import './SeriesDetails.css';
 import Comment from '../comment/Comment';
 import { User } from 'firebase/auth';
 import { collection, query, where, getDocs, updateDoc } from 'firebase/firestore';
-import { firestore } from '../../database/firebase.config';
+import { auth, firestore } from '../../database/firebase.config';
+import ButtonFollow from './ButtonFollow';
 
 const API_KEY = '7621f03a59813df069fb4c80cb30ec89';
 const API_BASE_URL = 'https://api.themoviedb.org/3';
@@ -14,16 +15,10 @@ const SeriesDetails = () => {
   const { id } = useParams<{ id: string }>();
   const [serieDetails, setSerieDetails] = useState<any>(null);
   const [cast, setCast] = useState<any[]>([]);
-  const [user, setUser] = useState<User | null>(null);
-  const [follow, setFollow] = useState([] as any[]);
 
   const getYearFromDate = (date: string) => {
     const year = new Date(date).getFullYear();
     return year;
-  };
-
-  const addToWatchlist = (serieId: number) => {
-    // Gestion pour l'ajout à la liste de séries suivies.
   };
 
   useEffect(() => {
@@ -50,29 +45,6 @@ const SeriesDetails = () => {
     fetchSerieDetails();
   }, [id]);
 
-  const handleFollowClick = async () => {
-    if (user) {
-      try {
-          const userRef = collection(firestore, "User");
-          const q = query(userRef, where("email", "==", user.email));
-          const querySnapshot = await getDocs(q);
-  
-          querySnapshot.forEach(async (doc) => {
-            const userId = doc.id;
-  
-            await updateDoc(doc.ref, {
-              follow: true,
-              idSerie: serieDetails
-            });
-          });
-          console.log("Série ajoutée!");
-      } catch (error) {
-        console.error("Erreur lors du suivi de la série : ", error);
-      }
-    } else {
-      console.log("L'utilisateur n'est pas connecté. Vous devez être connecté pour suivre une série.");
-    }
-  };
 
   if (serieDetails) {
     return (
@@ -85,7 +57,7 @@ const SeriesDetails = () => {
             src={serieDetails.backdrop_path ? `https://image.tmdb.org/t/p/w1280/${serieDetails.backdrop_path}` : 'https://i.etsystatic.com/8515241/r/il/e246f8/519356100/il_570xN.519356100_ra4x.jpg'}
             alt={serieDetails.name}
           />
-          <button onClick={handleFollowClick}>+</button>
+          <ButtonFollow serieDetails={serieDetails} />
         </Link>
         <div className='details-name'>
           <div className='text-details'></div>
