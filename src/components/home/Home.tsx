@@ -3,6 +3,7 @@ import './Home.css';
 import { Link } from 'react-router-dom';
 import Navbar from '../navbar/Navbar';
 import colors from '../../ChartColor/Chart';
+import ButtonFollow from './ButtonFollow';
 
 const API_KEY = '7621f03a59813df069fb4c80cb30ec89';
 const API_BASE_URL = 'https://api.themoviedb.org/3';
@@ -139,7 +140,7 @@ export function Home() {
               <p>{getYearFromDate(randomSeries.first_air_date)}</p>
               <p>{randomSeries.genres.map(genre => genre.name).join(', ')}</p>
             </div>
-            <button className='buttton' onClick={() => addToWatchlist(randomSeries.id)}>+</button>
+            <ButtonFollow serieDetails={randomSeries} />
           </div>
         </div>
       )}
@@ -180,12 +181,7 @@ export function Home() {
                 }
                 alt={serie.name}
               />
-              <button
-                className='loik-button'
-                onClick={() => addToWatchlist(serie.id)}
-              >
-                +
-              </button>
+              <ButtonFollow serieDetails={serie} />
               <div className='title'>
                 <h4>{serie.name}</h4>
               </div>
