@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { User } from 'firebase/auth';
+import './Home.css';
 import { collection, query, where, getDocs, updateDoc } from 'firebase/firestore';
 import { auth, firestore } from '../../database/firebase.config';
 
@@ -52,7 +53,7 @@ const ButtonFollow = ({ serieDetails }: { serieDetails: any }) => {
 
   return (
     <div>
-      <button onClick={handleFollowClick} disabled={follow}>
+      <button className='followbutton' onClick={handleFollowClick} disabled={follow}>
         {follow ? "Suivi" : "Suivre"}
       </button>
     </div>

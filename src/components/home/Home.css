@@ -87,6 +87,14 @@ body {
     width: 42px;
     height: 42px;
 }
+.followbutton{
+  border: none; 
+    border-radius: 5px; 
+    padding: 10px 20px; 
+    cursor: pointer; 
+    margin-right: 20px;
+    margin-left: 20px;
+}
 
 ul{
     list-style: none;
